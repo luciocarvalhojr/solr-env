@@ -1,0 +1,13 @@
+services:
+  solr:
+    build:
+      dockerfile: Docker/SolrServer/Dockerfile
+      context: solr-9.8
+    environment:
+      - SOLR_OPTS=-XX:-UseLargePages
+      - SOLR_JAVA_MEM=-Xms28g -Xmx28g
+    volumes:
+      - "./solr/data:/var/solr/data/data"
+    restart: unless-stopped
+    ports:
+      - "8983:8983"
