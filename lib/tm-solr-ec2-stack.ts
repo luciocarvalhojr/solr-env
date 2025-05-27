@@ -179,8 +179,8 @@ export class TmSolrEc2Stack extends cdk.Stack {
                 recordName: 'solr', // Will create solr.example.internal
             })
 
-            new ssm.StringParameter(this, 'EndpointSolrWrite', {
-                parameterName: '/Solr/Endpoint/Write',
+            new ssm.StringParameter(this, 'EndpointSolrWrite2', {
+                parameterName: '/Solr2/Endpoint/Write',
                 stringValue: route53Record.domainName,
             });
         }
