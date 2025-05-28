@@ -13,6 +13,8 @@ RUN rm -fR /opt/solr/server/solr/* \
   && apt update && apt upgrade -y && apt install sudo -y \
   && echo "solr ALL=NOPASSWD:SETENV: /docker-entrypoint-initdb.d-as-sudo/*" > /etc/sudoers.d/solr
 
+RUN touch /tmp/teste
+
 COPY Docker/SolrServer/docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d
 COPY Docker/SolrServer/docker-entrypoint-initdb.d-as-sudo/ /docker-entrypoint-initdb.d-as-sudo
 USER solr
