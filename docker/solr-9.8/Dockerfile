@@ -15,9 +15,9 @@ RUN rm -fR /opt/solr/server/solr/* \
 
 RUN touch /tmp/teste
 
-COPY Docker/SolrServer/docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d
-COPY Docker/SolrServer/docker-entrypoint-initdb.d-as-sudo/ /docker-entrypoint-initdb.d-as-sudo
+COPY docker/solr-9.8/docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d
+COPY docker/solr-9.8/docker-entrypoint-initdb.d-as-sudo/ /docker-entrypoint-initdb.d-as-sudo
 USER solr
 
-COPY --chown=solr:solr Resources/Private/Solr/ /var/solr/data
+COPY --chown=solr:solr docker/solr-9.8/conf /var/solr/data
 RUN mkdir -p /var/solr/data/data
